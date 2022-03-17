@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Open Sans", sans-serif;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+header,
+footer {
+	background: black;
+	color: white;
+	min-height: fit-content;
+	height: 10vh;
+	display: grid;
+	place-items: center;
+}
+
+main {
+	display: flex;
+	align-items: center;
+	flex-grow: 1;
+	gap: 6rem;
+	padding: 4rem;
+}
+
+main * {
+	padding: 1rem;
+}
+
+.section {
+	flex-grow: 1;
+	min-height: 100%;
+	width: 50%;
+}
+
+#codeEditor {
+	font-size: 1.15rem;
+	background-color: black;
+	color: aliceblue;
+	border-style: none;
+}
+
+#runButton {
+	height: fit-content;
+	background-color: #20c420;
+	color: black;
+	border-style: none;
+}
+
+#results {
+}
+
+#results .block {
+	border-bottom: 2px solid gray;
+}
+
+#dataStore {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.dataBlock {
+	border: 1px solid black;
+	margin: 2px;
+}
+
+.dataBlock.active {
+	border: 2px solid red;
+}
