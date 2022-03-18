@@ -9,11 +9,19 @@
 	<script src="script.js" defer></script>
 </head>
 <body>
-	<header><h1>Brainfucker</h1></header>
+	<header>
+		<p> </p>
+		<h1>Brainfucker</h1>
+		<a href="/about.html" class="link">About</a>
+	</header>
 	<main>
-		<textarea name="code" id="codeEditor" class="section" placeholder="Start fucking your brain..."></textarea>
+		<textarea name="code" id="codeEditor" class="section" placeholder="Start fucking your brain..." ></textarea>
 		<button id="runButton">▶</button>
 		<div class="section" id="results">
+			<div class="block">
+				<h3>Simulation Speed</h3>
+				<input type="number" name="simulationSpeed" id="simulationSpeedInput" min="1" max="100">
+			</div>
 			<div class="block">
 				<h3>Data</h3>
 				<div id="dataStore"></div>

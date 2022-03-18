@@ -6,17 +6,24 @@ const dataStore = document.getElementById("dataStore");
 const inputBar = document.getElementById("inputBar");
 const outputBar = document.getElementById("outputBar");
 
+const simulationSpeedInput = document.getElementById("simulationSpeedInput");
+
 let data = [],
 	code = "",
 	dataPointer = 0,
 	instructionPointer = 0,
-	dataSize = 0;
+	dataSize = 0,
+	simulationSpeed = 1;
 
 const resetVariables = () => {
 	for (let i = 0; i < dataSize; i++) data[i] = 0;
-	(code = ""), (dataPointer = 0), (instructionPointer = 0);
+	(code = ""),
+		(dataPointer = 0),
+		(instructionPointer = 0),
+		(simulationSpeed = 1);
 	outputBar.textContent = "";
 	inputBar.value = "";
+	simulationSpeedInput.value = 1;
 };
 
 const initialize = (ds) => {
@@ -38,8 +45,33 @@ const takeInput = () => {
 	return inputData;
 };
 
-const showOutput = (value) => {
-	outputBar.textContent += value;
+const showOutput = (value, mode = 0) => {
+	if (mode) outputBar.textContent += String.fromCharCode(value);
+	else outputBar.textContent += value;
+};
+
+const findMatchingClosing = () => {
+	let depth = 0;
+	for (let i = instructionPointer; i < code.length; i++) {
+		if (code[i] == "[") depth++;
+		else if (code[i] == "]") depth--;
+
+		if (depth == 0) return i;
+	}
+
+	return -1;
+};
+
+const findMatchingOpening = () => {
+	let depth = 0;
+	for (let i = instructionPointer; i >= 0; i--) {
+		if (code[i] == "]") depth++;
+		else if (code[i] == "[") depth--;
+
+		if (depth == 0) return i;
+	}
+
+	return -1;
 };
 
 const execute = () => {
@@ -80,6 +112,46 @@ const execute = () => {
 			else showOutput(data[dataPointer]);
 			break;
 		}
+		case ":": {
+			if (0 > dataPointer || dataPointer >= data.length)
+				alert("ERROR! Cannot output data. Invalid position.");
+			else showOutput(data[dataPointer], 1);
+			break;
+		}
+		case "[": {
+			if (0 > dataPointer || dataPointer >= data.length)
+				alert("ERROR! Cannot check data. Invalid position.");
+			else {
+				if (data[dataPointer] == 0) {
+					const closingPos = findMatchingClosing();
+					console.log("Close:", closingPos);
+					if (closingPos == -1)
+						alert(
+							"ERROR! No matching bracket found for opening bracket at char: " +
+								instructionPointer
+						);
+					else instructionPointer = closingPos;
+				}
+			}
+			break;
+		}
+		case "]": {
+			if (0 > dataPointer || dataPointer >= data.length)
+				alert("ERROR! Cannot check data. Invalid position.");
+			else {
+				if (data[dataPointer] != 0) {
+					const openingPos = findMatchingOpening();
+					console.log("Open:", openingPos);
+					if (openingPos == -1)
+						alert(
+							"ERROR! No matching bracket found for closing bracket at char: " +
+								instructionPointer
+						);
+					else instructionPointer = openingPos;
+				}
+			}
+			break;
+		}
 		default:
 			break;
 	}
@@ -96,7 +168,7 @@ const simulate = () => {
 	setTimeout(() => {
 		instructionPointer++;
 		simulate();
-	}, 500);
+	}, 500 / simulationSpeed);
 };
 
 const runCode = () => {
@@ -107,6 +179,11 @@ const runCode = () => {
 	simulate(code, instructionPointer, dataPointer);
 };
 
-runButton.addEventListener("click", runCode);
+const updateSimulationSpeed = () => {
+	simulationSpeed = simulationSpeedInput.value;
+};
 
-initialize(8);
+runButton.addEventListener("click", runCode);
+simulationSpeedInput.addEventListener("change", updateSimulationSpeed);
+
+initialize(32);

@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Open Sans", sans-serif;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+header,
+footer {
+	background: black;
+	color: white;
+	min-height: fit-content;
+	height: 10vh;
+	display: flex;
+	place-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+footer {
+	justify-content: center;
+}
+
+.link {
+	color: lightblue;
+	/* margin-left: auto;*/
+	margin-right: 1rem;
+	text-decoration: none;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-grow: 1;
+	gap: 2rem;
+	padding: 2rem;
+}
+
+main * {
+	padding: 1rem;
+}
+
+.tg {
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: 0px auto;
+}
+.tg td {
+	border-color: black;
+	border-style: solid;
+	border-width: 1px;
+	font-family: Arial, sans-serif;
+	font-size: 1.2rem;
+	overflow: hidden;
+	padding: 10px 5px;
+	word-break: normal;
+}
+.tg th {
+	border-color: black;
+	border-style: solid;
+	border-width: 1px;
+	font-family: Arial, sans-serif;
+	font-size: 1.2rem;
+	font-weight: normal;
+	overflow: hidden;
+	padding: 10px 5px;
+	word-break: normal;
+}
+.tg .tg-mnzm {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif !important;
+	text-align: left;
+	vertical-align: top;
+}
+.tg .tg-ss6j {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif !important;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: top;
+}
+.tg .tg-vli5 {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif !important;
+	font-weight: bold;
+	text-align: left;
+	vertical-align: top;
+}
+.tg .tg-kmho {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif !important;
+	text-align: center;
+	vertical-align: top;
+}
+@media screen and (max-width: 767px) {
+	.tg {
+		width: auto !important;
+	}
+	.tg col {
+		width: auto !important;
+	}
+	.tg-wrap {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		margin: auto 0px;
+	}
+}

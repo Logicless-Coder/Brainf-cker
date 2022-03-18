@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Brainfucker - About</title>
+	<link rel="stylesheet" href="about-styles.css">
+	<script src="script.js" defer></script>
+</head>
+<body>
+	<header>
+		<p> </p>
+		<h1>Brainfucker</h1>
+		<a href="/" class="link">Home</a>
+	</header>
+	<main>
+		<div class="section">
+			<h1>Syntax</h1>
+			<div class="tg-wrap"><table class="tg">
+				<thead>
+					<tr>
+						<th class="tg-ss6j">Symbol</th>
+						<th class="tg-vli5">Meaning</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="tg-kmho">&gt;</td>
+						<td class="tg-mnzm">Increment the data pointer (to point to the next cell to the right).</td>
+					</tr>
+					<tr>
+						<td class="tg-kmho">&lt;</td>
+						<td class="tg-mnzm">Decrement the data pointer (to point to the next cell to the left).</td>
+					</tr>
+					<tr>
+						<td class="tg-kmho">+</td>
+						<td class="tg-mnzm">Increment (increase by one) the byte at the data pointer.</td>
+					</tr>
+					<tr>
+						<td class="tg-kmho">-</td>
+						<td class="tg-mnzm">Decrement (decrease by one) the byte at the data pointer.</td>
+					</tr>
+					<tr>
+						<td class="tg-kmho">,</td>
+						<td class="tg-mnzm">Accept one byte of input, storing its value in the byte at the data pointer.</td>
+					</tr>
+					<tr>
+						<td class="tg-kmho">.</td>
+						<td class="tg-mnzm">Output the byte at the data pointer.</td>
+					</tr>
+					<tr>
+						<td class="tg-kmho">:<br></td>
+						<td class="tg-mnzm">Output the byte at the data pointer (as an ASCII character).</td>
+					</tr>
+					<tr>
+						<td class="tg-kmho">[</td>
+						<td class="tg-mnzm">If the byte at the data pointer is zero, then instead of moving the instruction pointer forward to the next command, jump it forward to the command after the matching ] command.</td>
+					</tr>
+					<tr>
+						<td class="tg-kmho">]</td>
+						<td class="tg-mnzm">If the byte at the data pointer is nonzero, then instead of moving the instruction pointer forward to the next command, jump it back to the command after the matching [ command.</td>
+					</tr>
+				</tbody>
+				</table></div>
+		</div>
+		<div class="section">
+			<h1>Examples</h1>
+			<article class=".example">
+				<h2>Hello World!</h2>
+				<p>++++++++[&gt;++++[&gt;++&gt;+++&gt;+++&gt;+&lt;&lt;&lt;&lt;-]&gt;+&gt;+&gt;-&gt;&gt;+[&lt;]&lt;-]&gt;&gt;:&gt;---:+++++++::+++:&gt;&gt;:&lt;-:&lt;:+++:------:--------:&gt;&gt;+:&gt;++:</p>
+			</article>
+		</div>
+	</main>
+	<footer>Made with ❤️ by Abhishek Rathore</footer>
+</body>
+</html>

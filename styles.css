@@ -24,8 +24,21 @@ footer {
 	color: white;
 	min-height: fit-content;
 	height: 10vh;
-	display: grid;
+	display: flex;
 	place-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+footer {
+	justify-content: center;
+}
+
+.link {
+	color: lightblue;
+	/* margin-left: auto;*/
+	margin-right: 1rem;
+	text-decoration: none;
 }
 
 main {
@@ -33,7 +46,7 @@ main {
 	align-items: center;
 	flex-grow: 1;
 	gap: 6rem;
-	padding: 4rem;
+	padding: 2rem;
 }
 
 main * {
@@ -42,7 +55,7 @@ main * {
 
 .section {
 	flex-grow: 1;
-	min-height: 100%;
+	min-height: 80%;
 	width: 50%;
 }
 
@@ -80,3 +93,4 @@ main * {
 .dataBlock.active {
 	border: 2px solid red;
 }
+
